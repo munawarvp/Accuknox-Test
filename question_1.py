@@ -16,6 +16,7 @@ Code with example:
 class Student(models.Model):
     name = models.CharField(max_length=255)
 
+# post_save is a signal type which will be triggered when a new model instance is created
 @receiver(post_save, sender=Student)
 def student_model_receiver(sender, instance, **kwargs):
     print("Signal received. Suppose starting a time-consuming task")
